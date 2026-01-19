@@ -7,7 +7,6 @@ config ZMK_SPLIT_BLE
 config ZMK_SPLIT_ROLE_PERIPHERAL
 	def_bool y
 
+# Peripheral half should NOT default to USB
 config ZMK_USB
-	def_bool y
-
-
+	def_bool n
