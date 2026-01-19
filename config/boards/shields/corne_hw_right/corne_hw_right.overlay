@@ -23,21 +23,27 @@
                     <&gpio0 22 GPIO_ACTIVE_HIGH>;
 
         diode-direction = "col2row";
-        debounce-press-ms = <5>;
-        debounce-release-ms = <5>;
+
+        /* Debounce (anti-spam) */
+        debounce-press-ms = <12>;
+        debounce-release-ms = <15>;
+
         wakeup-source;
     };
 
     default: matrix_transform {
-    compatible = "zmk,matrix-transform";
-    columns = <6>;
-    rows = <4>;
-    map = <
-        5 4 3 2 1 0
-        11 10 9 8 7 6
-        17 16 15 14 13 12
-        23 22 21 20 19 18
-    >;
+        compatible = "zmk,matrix-transform";
+        columns = <6>;
+        rows = <4>;
+        map = <
+            5 4 3 2 1 0
+            11 10 9 8 7 6
+            17 16 15 14 13 12
+            23 22 21 20 19 18
+        >;
+    };
 };
 
-&i2c0 { status = "disabled"; };
+&i2c0 {
+    status = "disabled";
+};
